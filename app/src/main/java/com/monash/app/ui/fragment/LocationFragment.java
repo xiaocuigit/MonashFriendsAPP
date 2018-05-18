@@ -169,20 +169,21 @@ public class LocationFragment extends BaseFragment{
 
             bcLocationReport.getXAxis().setDrawGridLines(false);
             bcLocationReport.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-            bcLocationReport.getXAxis().setAxisLineWidth(1.0f);
+//            bcLocationReport.getXAxis().setAxisLineWidth(1.0f);
+            bcLocationReport.getXAxis().setGranularity(1f);
             bcLocationReport.getXAxis().setValueFormatter(new IAxisValueFormatter() {
                 @Override
                 public String getFormattedValue(float value, AxisBase axis) {
                     return xAxisLabel.get((int)value);
                 }
             });
-            bcLocationReport.getXAxis().setLabelRotationAngle(-60);
+            bcLocationReport.getXAxis().setLabelRotationAngle(-50);
 
             bcLocationReport.getAxisRight().setEnabled(false);
 
             bcLocationReport.getAxisLeft().setAxisMinimum(0.0f);
             bcLocationReport.getAxisLeft().setDrawGridLines(false);
-            bcLocationReport.getAxisLeft().setAxisMaximum(maxVisited + 1);
+            bcLocationReport.getAxisLeft().setAxisMaximum(maxVisited + 2);
 
             bcLocationReport.setFitBars(true);
             bcLocationReport.animateY(1000);

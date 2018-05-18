@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
         userEmail = user_email.getText().toString();
         userPassword = user_password.getText().toString();
 //        userEmail = "jtao0001@student.monash.edu";
-//        userEmail = "myao0001@student.monash.edu";
+//        userEmail = "kqu0002@student.monash.edu";
 //        userPassword = "123456";
 
         boolean flag = true;
