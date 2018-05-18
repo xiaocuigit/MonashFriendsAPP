@@ -46,14 +46,15 @@
                     android:layout_marginRight="30dp"
                     android:layout_toRightOf="@+id/cur_temp"
                     android:layout_marginStart="30dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginTop="15dp"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
                         android:layout_marginStart="10dp"
                         android:id="@+id/current_weather_img"
                         android:layout_width="60dp"
@@ -62,7 +63,7 @@
 
                     <TextClock
                         android:id="@+id/cur_time"
-                        android:layout_marginStart="50dp"
+                        android:layout_marginStart="40dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"

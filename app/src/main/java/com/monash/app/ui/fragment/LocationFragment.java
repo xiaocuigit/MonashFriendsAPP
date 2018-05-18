@@ -13,11 +13,13 @@ import android.widget.TextView;
 
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -33,6 +35,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.sql.Struct;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -139,16 +142,23 @@ public class LocationFragment extends BaseFragment{
             {}.getType());
 
             ArrayList<BarEntry> entries = new ArrayList<>();    //显示条目
-            ArrayList<String> labels = new ArrayList<>();
+            final ArrayList<String> xAxisLabel = new ArrayList<>();
 
             float position = 0;
+            int maxVisited = 0;
+
             for (LocationVisited location : locationVisiteds){
                 Logger.d(location.getPlace() + " : " + location.getFrequency());
-                labels.add(location.getPlace());
+                xAxisLabel.add(location.getPlace());
+
                 Integer frequency = Integer.decode(location.getFrequency());
                 entries.add(new BarEntry(position, (float)frequency));
+                if (maxVisited < frequency){
+                    maxVisited = frequency;
+                }
                 position += 1;
             }
+
             BarDataSet dataSet = new BarDataSet(entries, "frequency");
             dataSet.setHighlightEnabled(true);
             dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
@@ -157,16 +167,22 @@ public class LocationFragment extends BaseFragment{
 
             bcLocationReport.getLegend().setForm(Legend.LegendForm.CIRCLE);
 
-            bcLocationReport.getXAxis().setDrawGridLines(true);
+            bcLocationReport.getXAxis().setDrawGridLines(false);
             bcLocationReport.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
             bcLocationReport.getXAxis().setAxisLineWidth(1.0f);
-            bcLocationReport.getXAxis().setEnabled(false);
+            bcLocationReport.getXAxis().setValueFormatter(new IAxisValueFormatter() {
+                @Override
+                public String getFormattedValue(float value, AxisBase axis) {
+                    return xAxisLabel.get((int)value);
+                }
+            });
+            bcLocationReport.getXAxis().setLabelRotationAngle(-60);
 
             bcLocationReport.getAxisRight().setEnabled(false);
 
             bcLocationReport.getAxisLeft().setAxisMinimum(0.0f);
             bcLocationReport.getAxisLeft().setDrawGridLines(false);
-            bcLocationReport.getAxisLeft().setAxisMaximum(4.0f);
+            bcLocationReport.getAxisLeft().setAxisMaximum(maxVisited + 1);
 
             bcLocationReport.setFitBars(true);
             bcLocationReport.animateY(1000);

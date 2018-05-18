@@ -45,7 +45,7 @@ public class HttpUtil {
                     Response response = client.newCall(request).execute();
 
                     if (response.isSuccessful()) {
-                        EventBus.getDefault().post(new EventUtil(eventType, response.body().string()));
+                        EventBus.getDefault().post(new EventUtil(eventType, response.body().string(), response.code()));
                     } else {
                         Log.d("error", response.message());
                         Log.d("errorCode", String.valueOf(response.code()));
@@ -75,12 +75,9 @@ public class HttpUtil {
                 try {
                     Request request = builder.post(body).build();
                     Response response = client.newCall(request).execute();
-                    if (response.isSuccessful()) {
-                        EventBus.getDefault().post(new EventUtil(eventType, response.body().string()));
-                    } else {
-                        Log.d("error", response.message());
-                        Log.d("errorCode", String.valueOf(response.code()));
-                    }
+
+                    EventBus.getDefault().post(new EventUtil(eventType, response.body().string(), response.code()));
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -111,55 +108,55 @@ public class HttpUtil {
         }).start();
     }
 
+//
+//    /**
+//     * 提交put请求
+//     * @param url
+//     * @param content
+//     * @return
+//     */
+//    public void put(final String url, final String content, final int eventType) {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                RequestBody body = RequestBody.create(JSON, content);
+//                Request.Builder builder = new Request.Builder().url(url);
+//                Request request = builder.put(body).build();
+//                try {
+//                    Response response = client.newCall(request).execute();
+//                    if (response.isSuccessful()) {
+//                        EventBus.getDefault().post(new EventUtil(eventType, response.body().string()));
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+//    }
 
-    /**
-     * 提交put请求
-     * @param url
-     * @param content
-     * @return
-     */
-    public void put(final String url, final String content, final int eventType) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                RequestBody body = RequestBody.create(JSON, content);
-                Request.Builder builder = new Request.Builder().url(url);
-                Request request = builder.put(body).build();
-                try {
-                    Response response = client.newCall(request).execute();
-                    if (response.isSuccessful()) {
-                        EventBus.getDefault().post(new EventUtil(eventType, response.body().string()));
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
-
-    /**
-     * 提交删除请求
-     * @param url
-     * @param content
-     * @return
-     */
-    public void delete(final String url, final String content, final int eventType){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                RequestBody body = RequestBody.create(JSON, content);
-                Request.Builder builder = new Request.Builder().url(url);
-                Request request = builder.delete(body).build();
-                try {
-                    Response response = client.newCall(request).execute();
-                    if (response.isSuccessful()) {
-                        EventBus.getDefault().post(new EventUtil(eventType, response.body().string()));
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
+//
+//    /**
+//     * 提交删除请求
+//     * @param url
+//     * @param content
+//     * @return
+//     */
+//    public void delete(final String url, final String content, final int eventType){
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                RequestBody body = RequestBody.create(JSON, content);
+//                Request.Builder builder = new Request.Builder().url(url);
+//                Request request = builder.delete(body).build();
+//                try {
+//                    Response response = client.newCall(request).execute();
+//                    if (response.isSuccessful()) {
+//                        EventBus.getDefault().post(new EventUtil(eventType, response.body().string()));
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
+//    }
 }

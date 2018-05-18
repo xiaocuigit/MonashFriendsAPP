@@ -4,45 +4,36 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.AppCompatSpinner;
 import android.text.TextUtils;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import butterknife.OnTextChanged;
-
-import com.bumptech.glide.load.engine.Resource;
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
-import com.github.mikephil.charting.data.PieData;
 import com.monash.app.R;
 import com.monash.app.utils.ConfigUtil;
 import com.monash.app.utils.EventUtil;
 import com.monash.app.utils.HttpUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class ProfileActivity extends BaseActivity implements CalendarDatePickerDialogFragment.OnDateSetListener{
 
@@ -67,7 +58,6 @@ public class ProfileActivity extends BaseActivity implements CalendarDatePickerD
     @BindView(R.id.sp_favoriteSport) Spinner spFavSport;
     @BindView(R.id.sp_favoriteUnit) Spinner spFavUnit;
     @BindView(R.id.tv_subscribeDate) TextView tvSubscribeDate;
-
 
     private String gender;
     private String course;
@@ -238,6 +228,9 @@ public class ProfileActivity extends BaseActivity implements CalendarDatePickerD
     }
 
     private String changeDateToString(Date date) {
+        if (date == null){
+            return "Please input birthday";
+        }
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         int year = calendar.get(Calendar.YEAR);
@@ -288,7 +281,8 @@ public class ProfileActivity extends BaseActivity implements CalendarDatePickerD
         if (checkChangedInfo() && user != null){
             JSONObject jsonObject = packageJSON();
             try {
-                HttpUtil.getInstance().post(ConfigUtil.POST_USER_UPDATE + user.getStudID(), ConfigUtil.EVENT_EDIT_USER_INFO, jsonObject.toString());
+                if (jsonObject != null)
+                    HttpUtil.getInstance().post(ConfigUtil.POST_USER_UPDATE + user.getStudID(), ConfigUtil.EVENT_EDIT_USER_INFO, jsonObject.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -299,7 +293,6 @@ public class ProfileActivity extends BaseActivity implements CalendarDatePickerD
         JSONObject jsonObject = new JSONObject();
         if (user != null){
             try {
-                jsonObject.put("studID", user.getStudID());
                 jsonObject.put("firstName", user.getFirstName());
                 jsonObject.put("surName", user.getSurName());
                 jsonObject.put("email", user.getEmail());
@@ -377,9 +370,13 @@ public class ProfileActivity extends BaseActivity implements CalendarDatePickerD
     @Subscribe(threadMode = ThreadMode.MAIN)
     void saveUserInfoSuccess(EventUtil eventUtil){
         if (eventUtil.getEventType() == ConfigUtil.EVENT_EDIT_USER_INFO){
-            Logger.d(eventUtil.getResult());
-            startActivity(new Intent(this, HomeActivity.class));
-            finish();
+            int code = eventUtil.getResponseCode();
+            if (code == 200) {
+                startActivity(new Intent(this, HomeActivity.class));
+                finish();
+            } else {
+                Toast.makeText(this, "Connect Server error!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

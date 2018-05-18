@@ -7,10 +7,12 @@ package com.monash.app.utils;
 public class EventUtil {
     private int eventType;
     private String result;
+    private int responseCode;
 
-    EventUtil(int eventType, String result) {
+    EventUtil(int eventType, String result, int code) {
         this.eventType = eventType;
         this.result = result;
+        this.responseCode = code;
     }
 
     public int getEventType() {
@@ -27,5 +29,13 @@ public class EventUtil {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public int getResponseCode() {
+        return responseCode;
+    }
+
+    public void setResponseCode(int responseCode) {
+        this.responseCode = responseCode;
     }
 }

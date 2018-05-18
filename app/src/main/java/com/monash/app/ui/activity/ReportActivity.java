@@ -32,9 +32,6 @@ public class ReportActivity extends BaseActivity {
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null){
-//            getSupportActionBar().setHomeAsUpIndicator(R.drawable.);
-        }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

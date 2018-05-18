@@ -1,10 +1,14 @@
 package com.monash.app.ui.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TextInputEditText;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -38,12 +42,9 @@ import butterknife.OnClick;
 public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.input_email) TextInputEditText user_email;
-
     @BindView(R.id.input_password) TextInputEditText user_password;
-
     @BindView(R.id.tv_signup_account) TextView sign_up_account;
-
-    @BindView(R.id.tv_forget_password) TextView forget_password;
+    @BindView(R.id.cb_autoLogin) CheckBox auto_login;
 
     private String userEmail;
     private String userPassword;
@@ -55,6 +56,17 @@ public class LoginActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         Logger.addLogAdapter(new AndroidLogAdapter());
+        autoLogin();
+    }
+
+    private void autoLogin() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Boolean isLogin = preferences.getBoolean("isLogin", false);
+        if (isLogin){
+            userEmail = preferences.getString("userEmail", "");
+            userPassword = preferences.getString("userPassword", "");
+            HttpUtil.getInstance().get(ConfigUtil.GET_USER_BY_EMAIL + userEmail, ConfigUtil.EVENT_LOGIN);
+        }
     }
 
     @Override
@@ -74,6 +86,17 @@ public class LoginActivity extends AppCompatActivity {
         if(validateInput()){
             // 检测用户输入无误后，向服务器验证该用户的信息
             HttpUtil.getInstance().get(ConfigUtil.GET_USER_BY_EMAIL + userEmail, ConfigUtil.EVENT_LOGIN);
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+            if (auto_login.isChecked()){
+                editor.putBoolean("isLogin", true);
+                editor.putString("userEmail", userEmail);
+                editor.putString("userPassword", userPassword);
+            } else {
+                editor.putBoolean("isLogin", false);
+                editor.putString("userEmail", "");
+                editor.putString("userPassword", "");
+            }
+            editor.apply();
         }
     }
 
@@ -114,7 +137,8 @@ public class LoginActivity extends AppCompatActivity {
         userEmail = user_email.getText().toString();
         userPassword = user_password.getText().toString();
         userEmail = "jtao0001@student.monash.edu";
-        userPassword = "123456";
+//        userEmail = "myao0001@student.monash.edu";
+//        userPassword = "123456";
 
         boolean flag = true;
 

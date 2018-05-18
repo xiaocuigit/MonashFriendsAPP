@@ -3,6 +3,7 @@ package com.monash.app.ui.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
@@ -100,7 +101,7 @@ public class HomeActivity extends BaseActivity
         initHeader();
 
         initWeatherInfo();
-        tvCurrentTime.setFormat12Hour("hh:mm");
+        tvCurrentTime.setFormat24Hour("HH:mm");
     }
 
     private void initMap() {
@@ -315,10 +316,13 @@ public class HomeActivity extends BaseActivity
         } else if (id == R.id.nav_report) {
             startActivity(new Intent(this, ReportActivity.class));
         } else if (id == R.id.nav_logout) {
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+            editor.putBoolean("isLogin", false);
+            editor.putString("userEmail", "");
+            editor.putString("userPassword", "");
+            editor.apply();
             startActivity(new Intent(this, LoginActivity.class));
             finish();
-//        } else if (id == R.id.nav_share) {
-
         } else if (id == R.id.nav_about_us) {
 
         }

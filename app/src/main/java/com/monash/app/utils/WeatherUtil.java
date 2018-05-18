@@ -17,7 +17,7 @@ public class WeatherUtil {
 //    private static String LANGUAGE = "zh-Hans";
     private static String LANGUAGE = "en";
     private static String UNIT = "c";
-    private static String KEY = "nf2fsvb0v3abpuww";
+    private static String KEY = "gma5qbfmkrozkm0u";
 
     /**
      * 获取访问心知天气服务器未来几天的天气信息的URL
