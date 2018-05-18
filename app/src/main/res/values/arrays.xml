@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="courses">
+        <item >Please Select</item>
+        <item >MIT</item>
+        <item >MBIS</item>
+        <item >MNS</item>
+        <item >MDS</item>
+        <item >CS</item>
+    </string-array>
+
+    <string-array name="units">
+        <item >Please Select</item>
+        <item >FIT5183</item>
+        <item >FIT5186</item>
+        <item >FIT5187</item>
+        <item >FIT5190</item>
+        <item >TIF5184</item>
+        <item >TIF5154</item>
+        <item >TIF5171</item>
+    </string-array>
+
+    <string-array name="sports">
+        <item >Please Select</item>
+        <item>American Football</item>
+        <item>Badminton</item>
+        <item>Baseball</item>
+        <item>Basketball</item>
+        <item>Boxing</item>
+        <item>Cricket</item>
+        <item>Cycling</item>
+        <item>Football/Soccer</item>
+        <item>Golf</item>
+        <item>Gymnastics</item>
+        <item>Rugby</item>
+        <item>Swimming</item>
+        <item>Table Tennis</item>
+        <item>Tennis</item>
+        <item>Volleyball</item>
+    </string-array>
+</resources>

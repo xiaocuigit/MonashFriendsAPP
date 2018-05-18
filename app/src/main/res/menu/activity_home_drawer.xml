@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_grey_600_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person_grey_600_24dp"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/ic_friends_grey_600_24dp"
+            android:title="Friends" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_search_grey_600_24dp"
+            android:title="Search" />
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_report_grey_600_24dp"
+            android:title="Report" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_about_grey_600_24dp"
+            android:title="About" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout_grey_600_24dp"
+            android:title="Logout" />
+
+
+    </group>
+
+    <!--<item android:title=" ">-->
+        <!--<menu>-->
+            <!--&lt;!&ndash;<item&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/nav_share"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:title="Share" />&ndash;&gt;-->
+            <!--<item-->
+                <!--android:id="@+id/nav_about_us"-->
+                <!--android:title="About" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_logout"-->
+                <!--android:title="Logout" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="10dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="FIND NEW FRIENDS"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="who has the same attributes as yourself"
+        android:textColor="@color/sienna"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:text="ATTRIBUTES"
+            android:textColor="@color/red_light"
+            android:textSize="28sp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/text_view_border"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <CheckBox
+                android:id="@+id/cb_birthday"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Birthday"/>
+
+            <CheckBox
+                android:id="@+id/cb_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <CheckBox
+                android:id="@+id/cb_course"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Course"/>
+
+            <CheckBox
+                android:id="@+id/cb_study_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="StudyMode"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <CheckBox
+                android:id="@+id/cb_nationality"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Nationality"/>
+
+            <CheckBox
+                android:id="@+id/cb_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Language"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <CheckBox
+                android:id="@+id/cb_suburb"
+                android:layout_width="150dp"
+                android:layout_marginLeft="30dp"
+                android:layout_height="wrap_content"
+                android:text="Suburb"/>
+
+            <CheckBox
+                android:id="@+id/cb_favMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FavoriteMovie"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <CheckBox
+                android:id="@+id/cb_favUnit"
+                android:layout_width="150dp"
+                android:layout_marginLeft="30dp"
+                android:layout_height="wrap_content"
+                android:text="FavouriteUnit"/>
+
+            <CheckBox
+                android:id="@+id/cb_favSport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FavoriteSport"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_search_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Please select at least one attributes"
+            android:textColor="@color/red"
+            android:textSize="15sp"
+            android:layout_marginTop="15dp"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_login_select"
+            android:padding="10dp"
+            android:text="Search"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

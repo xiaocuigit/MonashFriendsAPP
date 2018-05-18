@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/friends_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:mrl_rippleColor="?attr/colorPrimary"
+    app:mrl_rippleOverlay="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:background="@drawable/abc_popup_background_mtrl_mult"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_friend_info_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="70dp"
+                android:paddingTop="6dp"
+                android:textStyle="bold"
+                android:textColor="@color/darkcyan"
+                android:text="Ruilong Cui"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tv_friend_info_gender"
+                android:padding="5dp"
+                android:layout_marginTop="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Male"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_friend_info_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:textColor="#848484"
+                android:text="***@student.monash.edu"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:id="@+id/tv_friend_info_studyMode"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Full-Time"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_friend_info_nation"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="China"/>
+
+            <TextView
+                android:id="@+id/tv_friend_info_language"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Chinese"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#848484"
+                    android:text="course:"
+                    android:textSize="@dimen/abc_text_size_small_material"/>
+
+                <TextView
+                    android:id="@+id/tv_friend_info_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#848484"
+                    android:text="MIT"
+                    android:textSize="@dimen/abc_text_size_small_material"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#848484"
+                    android:textSize="@dimen/abc_text_size_small_material"
+                    android:text="Address: "/>
+
+                <TextView
+                    android:id="@+id/tv_friend_info_address"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="#848484"
+                    android:textSize="@dimen/abc_text_size_small_material"
+                    android:text="Jiangsu: "/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textColor="#848484"
+                    android:textSize="@dimen/abc_text_size_small_material"
+                    android:text="suburb: "/>
+
+                <TextView
+                    android:id="@+id/tv_friend_info_suburb"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="#848484"
+                    android:textSize="@dimen/abc_text_size_small_material"
+                    android:text="Suzhou: "/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="10dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Favorite Unit:"/>
+
+            <TextView
+                android:id="@+id/tv_friend_info_favUnit"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="FIT5183"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="10dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Favorite Movie:"/>
+
+            <TextView
+                android:id="@+id/tv_friend_info_favMovie"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Forest Gump"
+                android:focusable="true" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="10dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Favorite Sport:"/>
+
+            <TextView
+                android:id="@+id/tv_friend_info_favSport"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Swimming"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_friend_startDate"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="10dp"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="#848484"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="Friendship start from:"/>
+
+            <TextView
+                android:id="@+id/tv_friend_info_startDate"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/abc_text_size_small_material"
+                android:text="2017-03-21"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.balysv.materialripple.MaterialRippleLayout>
+
