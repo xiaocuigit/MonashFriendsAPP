@@ -79,6 +79,7 @@
                     android:divider="@drawable/white_vertical_divider_line"
                     android:dividerPadding="3dp"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
                     android:layout_below="@id/cur_temp"
                     android:orientation="horizontal">
                     <TextView

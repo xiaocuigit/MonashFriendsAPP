@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean validateInput() {
         userEmail = user_email.getText().toString();
         userPassword = user_password.getText().toString();
-        userEmail = "jtao0001@student.monash.edu";
+//        userEmail = "jtao0001@student.monash.edu";
 //        userEmail = "myao0001@student.monash.edu";
 //        userPassword = "123456";
 
